@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if ! command -v docker &> /dev/null; then
     echo "Встановлення Docker..."
     sudo apt update
@@ -59,6 +60,7 @@ if ! command -v pip3 &> /dev/null; then
 else
     echo "✅ pip вже встановлено"
 fi
+
 
 
 if ! python3 -m django --version &> /dev/null; then
