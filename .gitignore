@@ -21,3 +21,7 @@ cat <<EOF > .gitignore
 *.tfvars
 crash.log
 EOF
+.aws/
+temp
+.idea/*
+.venv/*
