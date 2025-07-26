@@ -2,7 +2,6 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-# Підключаємо модуль S3 та DynamoDB
 module "s3_backend" {
   source      = "./modules/s3-backend"
   bucket_name = "lesson-5-terraform-state-bucket"
@@ -10,7 +9,6 @@ module "s3_backend" {
   environment = var.environment
 }
 
-# Підключаємо модуль VPC
 module "vpc" {
   source             = "./modules/vpc"
   vpc_cidr           = "10.0.0.0/16"
@@ -20,7 +18,6 @@ module "vpc" {
   vpc_name           = "lesson-5-vpc"
 }
 
-# Підключаємо модуль ECR
 module "ecr" {
   source       = "./modules/ecr"
   ecr_name     = "lesson-5-ecr"
