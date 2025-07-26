@@ -1,7 +1,7 @@
 controller:
   admin:
     username: admin
-    password: admin123
+    password: admin123 # pragma: allowlist secret
 
   serviceType: LoadBalancer
   servicePort: 80
@@ -59,7 +59,7 @@ controller:
                 scm {
                   git {
                     remote {
-                      url('https://github.com/Andriy0207/infra.git')
+                      url('https://github.com/AndriyDmitriv/infra.git')
                       credentials('github-token')
                     }
                     branches('*/main')
@@ -74,7 +74,7 @@ controller:
                             scm {
                               git {
                                 remote {
-                                  url("https://github.com/Andriy0207/infra.git")
+                                  url("https://github.com/AndriyDmitriv/infra.git")
                                   credentials("github-token")
                                 }
                                 branches("*/main")
