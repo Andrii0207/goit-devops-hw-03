@@ -1,7 +1,7 @@
 controller:
   admin:
     username: admin
-    password: admin123
+    password: admin123 # pragma: allowlist secret
 
   serviceType: LoadBalancer
   servicePort: 80
