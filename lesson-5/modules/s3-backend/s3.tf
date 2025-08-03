@@ -1,28 +1,16 @@
-resource "aws_s3_bucket" "main" {
+resource "aws_s3_bucket" "terraform_state" {
   bucket = var.bucket_name
-
-  lifecycle {
-    prevent_destroy = true
-  }
+  force_destroy = true
 
   tags = {
-    Name        = "Terraform State Bucket"
-    Environment = "lesson-5"   
+    Name = "Terraform State Bucket"
   }
 }
 
-resource "aws_s3_bucket_versioning" "main" {
-  bucket = aws_s3_bucket.main.id
+resource "aws_s3_bucket_versioning" "versioning" {
+  bucket = aws_s3_bucket.terraform_state.id
 
   versioning_configuration {
     status = "Enabled"
   }
 }
-
-# resource "aws_s3_ownership_controls" "main" {
-#   bucket = aws_s3_bucket.main.id
-
-#   rule {
-#     object_ownership = "BucketOwnerEnforced"
-#   }
-# }  

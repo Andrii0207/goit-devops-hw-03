@@ -9,7 +9,34 @@ resource "aws_ecr_repository" "main" {
     Environment = var.environment
   }
 }
+
+
 resource "aws_ecr_lifecycle_policy" "policy" {
   repository = aws_ecr_repository.main.name
   policy     = var.lifecycle_policy
+}
+
+
+resource "aws_ecr_repository_policy" "main" {
+  repository = aws_ecr_repository.main.name
+
+  policy = jsonencode({
+    Version = "2008-10-17"
+    Statement = [
+      {
+        Sid       = "AllowPushPull"
+        Effect    = "Allow"
+        Principal = "*"
+        Action = [
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:PutImage",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload"
+        ]
+      }
+    ]
+  })
 }

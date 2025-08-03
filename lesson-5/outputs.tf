@@ -51,3 +51,30 @@ output "eks_cluster_endpoint" {
   description = "EKS API endpoint"
   value       = module.eks.eks_cluster_endpoint
 }
+
+output "eks_cluster_ca" {
+  description = "EKS cluster CA certificate"
+  value       = module.eks.eks_cluster_ca
+}
+
+output "argo_cd_url" {
+  description = "Argo CD URL-address"
+  value       = module.argo_cd.url
+}
+
+output "argo_cd_password" {
+  description = "Argo CD admin base password"
+  value       = module.argo_cd.password
+  sensitive   = true
+}
+
+output "jenkins_url" {
+  description = "Jenkins URL-address"
+  value       = module.jenkins.url
+}
+
+output "jenkins_password" {
+  description = "Jenkins admin base password"
+  value       = module.jenkins.password
+  sensitive   = true
+}

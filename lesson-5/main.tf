@@ -102,3 +102,7 @@ module "rds" {
      Project     = "lesson5"
    }
  }
+
+ module "prometheus" {
+  source = "./modules/prometheus"
+}

@@ -1,3 +1,4 @@
+
 resource "aws_iam_role" "jenkins_kaniko_role" {
   name = "${var.cluster_name}-jenkins-kaniko-role"
 

@@ -1,18 +1,13 @@
 controller:
   admin:
     username: admin
-    password: admin123 # pragma: allowlist secret
+    password: admin123
 
   serviceType: LoadBalancer
   servicePort: 80
   service:
     port: 80
     targetPort: 8080
-
-  serviceAccount:
-     name: jenkins-sa
-     create: false
-
 
   resources:
     limits:
@@ -38,6 +33,10 @@ controller:
     - docker-workflow:latest
     - job-dsl:latest
 
+  serviceAccount:
+    name: jenkins-sa
+    create: false
+
   JCasC:
     configScripts:
       credentials: |
@@ -48,9 +47,9 @@ controller:
                   - usernamePassword:
                       scope: GLOBAL
                       id: github-token
-                      username: 
-                      password: 
-                      description: GitHub PAT
+                      username: YOUR_GITHUB_USERNAME
+                      password: YOUR_GITHUB_PAT
+                      description: GitHub PAT for Jenkins
       seed-job: |
         jobs:
           - script: >
@@ -59,7 +58,7 @@ controller:
                 scm {
                   git {
                     remote {
-                      url('https://github.com/AndriyDmitriv/infra.git')
+                      url('https://github.com/YOUR_USERNAME/infra.git')
                       credentials('github-token')
                     }
                     branches('*/main')
@@ -74,7 +73,7 @@ controller:
                             scm {
                               git {
                                 remote {
-                                  url("https://github.com/AndriyDmitriv/infra.git")
+                                  url("https://github.com/YOUR_USERNAME/infra.git")
                                   credentials("github-token")
                                 }
                                 branches("*/main")

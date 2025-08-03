@@ -25,3 +25,4 @@ EOF
 temp
 .idea/*
 .venv/*
+.vscode/*

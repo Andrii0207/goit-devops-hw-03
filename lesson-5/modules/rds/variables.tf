@@ -1,83 +1,83 @@
 variable "name" {
-  description = "Database name"
+  description = "Ім’я бази"
   type        = string
 }
 
 variable "use_aurora" {
-  description = "true — creating сluster"
+  description = "true — створюємо сluster"
   type        = bool
   default     = false
 }
 
 variable "engine" {
-  description = "Database type"
+  description = "Тип бази"
   type        = string
 }
 variable "engine_version" {
-  description = "RDS version"
+  description = "Версія RDS"
   type        = string
 }
 variable "engine_cluster" {
-  description = "Aurora type"
+  description = "Тип Aurora"
   type        = string
 }
 variable "engine_version_cluster" {
-  description = "Aurora verion"
+  description = "Версія Aurora"
   type        = string
 }
 
 variable "instance_class" {
-  description = "Instance type"
+  description = "Клас інстансу"
   type        = string
 }
 variable "allocated_storage" {
-  description = "Database capacity (Gb)"
+  description = "Обсяг сховища (ГБ)"
   type        = number
   default     = 20
 }
 
 variable "subnet_private_ids" {
-  description = "Private subnets Id-list"
+  description = "Id приватних підмереж"
   type        = list(string)
 }
 
 variable "subnet_public_ids" {
-  description = "Public subnets Id-list"
+  description = "Iв публічних підмереж"
   type        = list(string)
 }
 
 variable "publicly_accessible" {
-  description = "true — database public"
+  description = "true — буде ДБ публічною"
   type        = bool
   default     = false
 }
 
 variable "multi_az" {
-  description = "true — database will be in a few avaiable zones"
+  description = "true — ДБ буде в кількох зонах доступності"
   type        = bool
   default     = false
 }
 
 variable "backup_retention_period" {
-  description = "Time saving"
+  description = "Період зберігання"
   type        = number
   default     = 7
 }
 
 variable "parameters" {
-  description = "Additional settings map"
+  description = "Карта додаткових параметрів"
   type        = map(string)
   default     = {}
 }
 
 variable "aurora_replica_count" {
-  description = "Reclics amount"
+  description = "Кількість реплік"
   type        = number
   default     = 1
 }
 
 variable "tags" {
-  description = "Tags"
+  description = "Теги"
   type        = map(string)
   default     = {}
 }
@@ -88,17 +88,17 @@ variable "vpc_id" {
 }
 
 variable "db_name" {
-  description = "Database name"
+  description = "Назва ДБ"
   type        = string
 }
 
 variable "username" {
-  description = "Database user name"
+  description = "Ім'я користувача ДБ"
   type        = string
 }
 
 variable "password" {
-  description = "Database password"
+  description = "Пароль ДБ"
   type        = string
   sensitive   = true
 }

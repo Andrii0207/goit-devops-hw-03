@@ -1,10 +1,9 @@
-
-output "bucket" {
-  description = "The name of the S3 bucket"
-  value       = aws_s3_bucket.main.bucket
+output "s3_bucket_name" {
+  description = "The name of the created S3 bucket"
+  value       = aws_s3_bucket.terraform_state.id
 }
 
-output "bucket_regional_domain_name" {
-  description = "Regional domain name of the S3 bucket"
-  value       = aws_s3_bucket.main.bucket_regional_domain_name
+output "dynamodb_table_name" {
+  description = "The name of the existing DynamoDB table (passed as variable)"
+  value       = var.table_name
 }
