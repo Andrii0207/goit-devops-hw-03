@@ -31,9 +31,3 @@ variable "lifecycle_policy" {
 }
 EOF
 }
-
-variable "environment" {
-  description = "The environment for the ECR resources"
-  type        = string
-  default     = "lesson-5"
-}
